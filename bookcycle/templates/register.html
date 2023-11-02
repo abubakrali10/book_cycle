@@ -17,16 +17,16 @@
 					  <i class="fas fa-user fa-lg me-3 fa-fw"></i>
 					  <div class="form-outline flex-fill mb-0">
 						{% if form.username.errors %}
-						{{ form.username(class='form-control is-invalid', type='text', id='form3Example1c') }}
+						{{ form.username(class='form-control is-invalid', type='text', id='reg_username') }}
 						<div class="invalid-feedback">
 							{% for error in form.username.errors %}
 							<span>{{ error }}</span>
 							{% endfor %}
 						</div>
 						{% else %}
-						{{ form.username(class='form-control', type='text', id='form3Example1c') }}
+						{{ form.username(class='form-control', type='text', id='reg_username') }}
 						{% endif %}
-						{{ form.username.label(class='form-label', for='form3Example1c') }}
+						{{ form.username.label(class='form-label', for='reg_username') }}
 					  </div>
 					</div>
   
@@ -34,16 +34,16 @@
 					  <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
 					  <div class="form-outline flex-fill mb-0">
 						{% if form.email.errors %}
-						{{ form.email(class='form-control is-invalid', type='text', id='form3Example3c') }}
+						{{ form.email(class='form-control is-invalid', type='text', id='reg_email') }}
 						<div class="invalid-feedback">
 							{% for error in form.email.errors %}
 							<span>{{ error }}</span>
 							{% endfor %}
 						</div>
 						{% else %}
-						{{ form.email(class='form-control', type='text', id='form3Example3c') }}
+						{{ form.email(class='form-control', type='text', id='reg_email') }}
 						{% endif %}
-						{{ form.email.label(class='form-label', for='form3Example3c') }}
+						{{ form.email.label(class='form-label', for='reg_email') }}
 					  </div>
 					</div>
   
@@ -51,16 +51,16 @@
 					  <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
 					  <div class="form-outline flex-fill mb-0">
 						{% if form.password.errors %}
-						{{ form.password(class='form-control is-invalid', type='password', id='form3Example4c') }}
+						{{ form.password(class='form-control is-invalid', type='password', id='reg_password') }}
 						<div class="invalid-feedback">
 							{% for error in form.password.errors %}
 							<span>{{ error }}</span>
 							{% endfor %}
 						</div>
 						{% else %}
-						{{ form.password(class='form-control', type='password', id='form3Example4c') }}
+						{{ form.password(class='form-control', type='password', id='reg_password') }}
 						{% endif %}
-						{{ form.password.label(class='form-label', for='form3Example4c') }}
+						{{ form.password.label(class='form-label', for='reg_password') }}
 					  </div>
 					</div>
   
@@ -68,16 +68,16 @@
 					  <i class="fas fa-key fa-lg me-3 fa-fw"></i>
 					  <div class="form-outline flex-fill mb-0">
 						{% if form.password_confirm.errors %}
-						{{ form.password_confirm(class='form-control is-invalid', type='password', id='form3Example4cd') }}
+						{{ form.password_confirm(class='form-control is-invalid', type='password', id='conf_password') }}
 						<div class="invalid-feedback">
 							{% for error in form.password_confirm.errors %}
 							<span>{{ error }}</span>
 							{% endfor %}
 						</div>
 						{% else %}
-						{{ form.password_confirm(class='form-control', type='password', id='form3Example4cd') }}
+						{{ form.password_confirm(class='form-control', type='password', id='conf_password') }}
 						{% endif %}
-						{{ form.password_confirm.label(class='form-label', for='form3Example4cd') }}
+						{{ form.password_confirm.label(class='form-label', for='conf_password') }}
 					  </div>
 					</div>
   
@@ -91,7 +91,7 @@
 				<div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
   
 				  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
-					class="img-fluid" alt="Sample image">
+					class="img-fluid" alt="image">
   
 				</div>
 			  </div>
