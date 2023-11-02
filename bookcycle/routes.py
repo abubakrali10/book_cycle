@@ -1,7 +1,7 @@
 from bookcycle import app, bcrypt, db
 from bookcycle.models import User, Book
 from flask import render_template, flash, redirect, url_for, request
-from bookcycle.auth import LoginForm, RegistrationForm, AddBookForm
+from bookcycle.forms import LoginForm, RegistrationForm, AddBookForm
 from flask_login import login_user, current_user, logout_user, login_required
 
 
