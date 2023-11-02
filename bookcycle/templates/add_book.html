@@ -1,0 +1,77 @@
+{% extends "main.html" %}
+{% block content %}
+	<h2>Add a new book</h2>
+	<form action="/add_book/" method="POST" enctype="multipart/form-data">
+		{{ add_book_form.hidden_tag() }}
+		<div class="mb-3">
+			{{ add_book_form.book_title.label(class='form-label', for='book_title') }}
+			{% if add_book_form.book_title.errors %}
+			{{ add_book_form.book_title(type='text', class='form-control is-invalid', id='book_title', placeholder='Book Title') }}
+			<div class="invalid-feedback">
+				{% for error in add_book_form.book_title.errors %}
+				<span>{{ error }}</span>
+				{% endfor %}
+			</div>
+			{% else %}
+			{{ add_book_form.book_title(type='text', class='form-control', id='book_title', placeholder='Book Title') }}
+			{% endif %}
+		</div>
+		<div class="mb-3">
+			{{ add_book_form.book_author.label(class='form-label', for='book_author') }}
+			{% if add_book_form.book_author.errors %}
+			{{ add_book_form.book_author(type='text', class='form-control is-invalid', id='book_author', placeholder='Book Author') }}
+			<div class="invalid-feedback">
+				{% for error in add_book_form.book_author.errors %}
+				<span>{{ error }}</span>
+				{% endfor %}
+			</div>
+			{% else %}
+			{{ add_book_form.book_author(type='text', class='form-control', id='book_author', placeholder='Book Author') }}
+			{% endif %}
+		</div>
+		<div class="mb-3">
+			{{ add_book_form.contact_number.label(class='form-label', for='contact_number') }}
+			{% if add_book_form.contact_number.errors %}
+			{{ add_book_form.contact_number(type='text', class='form-control is-invalid', id='contact_number', placeholder='Phone Number') }}
+			<div class="invalid-feedback">
+				{% for error in add_book_form.contact_number.errors %}
+				<span>{{ error }}</span>
+				{% endfor %}
+			</div>
+			{% else %}
+			{{ add_book_form.contact_number(type='text', class='form-control', id='contact_number', placeholder='Phone Number') }}
+			{% endif %}
+		</div>
+		<div class="mb-3">
+			{{ add_book_form.book_desc.label(class='form-label', for='book_desc') }}
+			{% if add_book_form.contact_number.errors %}
+			{{ add_book_form.book_desc(class='form-control is-invalid', id='book_desc', placeholder='Add a short description for the book', rows='3') }}
+			<div class="invalid-feedback">
+				{% for error in add_book_form.contact_number.errors %}
+				<span>{{ error }}</span>
+				{% endfor %}
+			</div>
+			{% else %}
+			{{ add_book_form.book_desc(class='form-control', id='book_desc', placeholder='Add a short description for the book', rows='3') }}
+			{% endif %}
+		</div>
+		<div class="mb-3">
+			{{ add_book_form.book_image.label(class='form-label', for='book_image') }}
+			{% if add_book_form.book_image.errors %}
+			{{ add_book_form.book_image(class='form-control is-invalid', id='book_image') }}
+			<div class="invalid-feedback">
+				{% for error in add_book_form.book_image.errors %}
+				<span>{{ error }}</span>
+				{% endfor %}
+			</div>
+			{% else %}
+			{{ add_book_form.book_image(class='form-control', id='book_image') }}
+			{% endif %}
+		</div>
+		<div class="form-group">
+			<div class="col-12">
+				{{ add_book_form.submit(class='btn btn-primary') }}
+			</div>
+		</div>
+	</form>
+{% endblock %}
