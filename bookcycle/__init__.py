@@ -6,7 +6,7 @@ from flask_login import LoginManager
 
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = 'tempsecretkey'
+app.config['SECRET_KEY'] = '705bb820128b136d81ea3732f9583013'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///bookcycle.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
