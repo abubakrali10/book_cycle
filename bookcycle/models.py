@@ -17,6 +17,7 @@ def load_user(user_id):
     """
     return User.query.get(user_id)
 
+
 def get_uuid():
     """
     Generate a random UUID as a hexadecimal string.
@@ -39,7 +40,10 @@ class User(db.Model, UserMixin):
         books (relationship): One-to-many relationship with Book model.
     """
     __tablename__ = 'users'
-    id = db.Column(db.String(60), primary_key=True, unique=True, default=get_uuid)
+    id = db.Column(db.String(60),
+                   primary_key=True,
+                   unique=True,
+                   default=get_uuid)
     username = db.Column(db.String(25), unique=True, nullable=False)
     email = db.Column(db.String(255), unique=True, nullable=False)
     password = db.Column(db.String(25), nullable=False)
@@ -47,6 +51,7 @@ class User(db.Model, UserMixin):
 
     def __repr__(self):
         return f"User('{self.username}', '{self.email}')"
+
 
 class Book(db.Model):
     """
@@ -63,14 +68,23 @@ class Book(db.Model):
         book_image (str): File name of the book's image.
     """
     __tablename__ = 'books'
-    id = db.Column(db.String(60), primary_key=True, unique=True, default=get_uuid)
-    user_id = db.Column(db.String(60), db.ForeignKey('users.id'), nullable=False)
+    id = db.Column(db.String(60),
+                   primary_key=True,
+                   unique=True,
+                   default=get_uuid)
+    user_id = db.Column(db.String(60),
+                        db.ForeignKey('users.id'),
+                        nullable=False)
     title = db.Column(db.String(255), nullable=False)
     author = db.Column(db.String(255), nullable=False)
     description = db.Column(db.Text, nullable=False)
     phone_number = db.Column(db.String(20), nullable=True)
-    created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-    book_image = db.Column(db.String(25), nullable=False, default='book_default.jpg')
+    created_at = db.Column(db.DateTime,
+                           nullable=False,
+                           default=datetime.utcnow)
+    book_image = db.Column(db.String(25),
+                           nullable=False,
+                           default='book_default.jpg')
 
     def __repr__(self):
         return f"Book({self.title}, {self.created_at})"
