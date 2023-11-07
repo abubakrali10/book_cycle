@@ -3,21 +3,22 @@
 	<div class="container">
 		<h2>Published Books</h2>
 		<div class="row">
+			{% for book in published_books %}
 			<div class="col-md-4 mb-4">
 				<div class="card" style="width: 18rem;">
-					<img src="https://placehold.co/400" class="card-img-top" alt="this will be book image">
+					<img src="{{url_for('static', filename='book_images/'+book.book_image)}}" class="card-img-top" alt="book image">
 						<div class="card-body">
-						<h5 class="card-title">Book title</h5>
-						<p class="card-text">This will be the book description.</p>
+						<h5 class="card-title">{{book.title}}</h5>
+						<p class="card-text">{{book.description}}</p>
 					</div>
 					<ul class="list-group list-group-flush">
-						<li class="list-group-item">Book Author</li>
-						<li class="list-group-item">Contact Number</li>
-						<li class="list-group-item">Published on: 2/11/2023</li>
+						<li class="list-group-item">Book author: {{book.author}}</li>
+						<li class="list-group-item">Contact: {{book.phone_number}}</li>
+						<li class="list-group-item">Published On: {{book.created_at.strftime('%Y-%m-%d')}}</li>
 					</ul>
 				</div>
 			</div>
-
+			{% endfor %}
 		</div>
 	</div>
 {% endblock %}
