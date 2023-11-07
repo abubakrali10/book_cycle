@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, FileField, TextAreaField
+from wtforms import StringField, PasswordField, SubmitField, TextAreaField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
+from flask_wtf.file import FileField, FileAllowed
 from bookcycle.models import User
 
 
@@ -25,7 +26,7 @@ class RegistrationForm(FlaskForm):
         user = User.query.filter_by(username=username.data).first()
         if user:
             raise ValidationError('Username is already exists!')
-        
+
     def validate_email(self, email):
         user = User.query.filter_by(email=email.data).first()
         if user:
@@ -63,5 +64,5 @@ class AddBookForm(FlaskForm):
     book_author = StringField('Book Author', validators=[DataRequired(), Length(max=255)])
     contact_number = StringField('Contact Number', validators=[DataRequired(), Length(max=20)])
     book_desc = TextAreaField('Book Description', validators=[DataRequired()])
-    book_image = FileField('Book Image', validators=[DataRequired()])
+    book_image = FileField('Book Image', validators=[FileAllowed(['jpg', 'png'])])
     submit = SubmitField('Add')
