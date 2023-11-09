@@ -1,0 +1,13 @@
+.nav-styles {
+	border-bottom: 1px solid #ccc;
+}
+
+.hero {
+	margin-top: 25px;
+}
+
+.about {
+	background-color: #ccc;
+	padding: 30px 0;
+	text-align: center;
+}
